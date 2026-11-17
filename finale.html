@@ -57,17 +57,17 @@
   <main class="page__main" id="main">
     <div class="finale-wrap">
       <header class="finale-head">
-        <p class="eyebrow eyebrow--centered reveal" style="color:#ffe0b0">The last little wish</p>
-        <h1 class="finale-head__title">May Your Every <em>Tomorrow Be Beautiful</em></h1>
+        <p class="eyebrow eyebrow--centered reveal" style="color:#ffe0b0" data-bind-text="finale.eyebrow">The last little wish</p>
+        <h1 class="finale-head__title" data-core-bind="finale.heading" data-core-rich="1">May Your Every <em>Tomorrow Be Beautiful</em></h1>
       </header>
 
-      <section class="finale-panel" aria-label="A closing message">
+      <section class="finale-panel" aria-label="A closing message" data-finale-panel>
         <p>May the year ahead bring you new opportunities, unforgettable experiences, personal growth, and countless happy moments.</p>
         <p>May you always find strength in difficult times, confidence in your abilities, and happiness in the little things.</p>
         <p>Keep smiling, keep dreaming, and keep shining.</p>
       </section>
 
-      <p class="finale-encore">Happy Birthday Once Again!</p>
+      <p class="finale-encore" data-bind-text="finale.encore">Happy Birthday Once Again!</p>
 
       <div class="finale-wish">
         <p class="finale-wish__hint" data-wish-hint>
@@ -79,11 +79,11 @@
       <div class="finale-actions">
         <button class="btn btn--primary btn--lg" type="button" data-replay>
           <span aria-hidden="true" data-icon="replay"></span>
-          Experience Again
+          <span data-core-bind="finale.replay">Experience Again</span>
         </button>
         <button class="btn btn--ghost btn--lg" type="button" data-restart>
           <span aria-hidden="true" data-icon="home"></span>
-          Return to Beginning
+          <span data-core-bind="finale.restart">Return to Beginning</span>
         </button>
       </div>
 

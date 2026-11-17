@@ -52,12 +52,12 @@
 
   <main class="page__main" id="main">
     <header class="garden-head">
-      <p class="eyebrow eyebrow--centered reveal">Planted for you</p>
-      <h1 class="garden-head__title halo">
+      <p class="eyebrow eyebrow--centered reveal" data-bind-text="garden.eyebrow">Planted for you</p>
+      <h1 class="garden-head__title halo" data-core-bind="garden.intro" data-core-rich="heading">
         19 Flowers, <em>19 Beautiful Wishes</em>
       </h1>
       <p class="garden-head__body reveal">
-        A garden planted for you. Touch a flower and let its wish bloom.
+        <span data-core-bind="garden.body">A garden planted for you. Touch a flower and let its wish bloom.</span>
       </p>
       <p class="garden-meter" data-garden-meter aria-label="0 of 19 wishes found">
         <span aria-hidden="true" data-icon="flower"></span>
@@ -70,14 +70,14 @@
 
     <div class="garden-foot">
       <p class="garden-foot__note">
-        Every flower here holds one wish — and every one of them is yours.
+        <span data-core-bind="garden.closing">Every flower here holds one wish — and every one of them is yours.</span>
       </p>
       <p class="badge garden-complete" data-garden-complete hidden>
         <span aria-hidden="true" data-icon="sparkle"></span>
         <span>All nineteen wishes found — beautifully done</span>
       </p>
       <a class="btn btn--primary btn--lg" href="letter.html" data-nav data-next>
-        Continue to Your Little Note
+        <span data-core-bind="garden.cta">Continue to Your Little Note</span>
         <span class="btn__arrow" aria-hidden="true" data-icon="arrowRight"></span>
       </a>
     </div>

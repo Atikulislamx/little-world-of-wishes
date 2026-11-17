@@ -105,7 +105,7 @@
     if (window.LWOW && LWOW.letter) LWOW.letter = undefined;
   }
 
-  function swapPage(doc, url) {
+  function swapPage(doc, url, historyMode) {
     var nextBody = doc.body;
     if (!nextBody) throw new Error('No body in the incoming document');
 
@@ -137,7 +137,13 @@
     document.body.appendChild(audioKeeper);
 
     syncHead(doc);
-    if (url) window.history.pushState({ lwowPage: page }, '', url);
+    if (url) {
+      if (historyMode === 'replace') {
+        window.history.replaceState({ lwowPage: page }, '', url);
+      } else {
+        window.history.pushState({ lwowPage: page }, '', url);
+      }
+    }
     window.scrollTo(0, 0);
 
     runScripts(document.body);
@@ -180,7 +186,7 @@
           var wait = reduced() ? 0 : 260;
           return new Promise(function (resolve) {
             window.setTimeout(function () {
-              swapPage(doc, options.replace ? null : target.href);
+              swapPage(doc, options.replace ? null : target.href, options.history || 'push');
               if (options.replace) window.history.replaceState({ lwowPage: target.pathname }, '', target.href);
               resolve(true);
             }, wait);
@@ -221,8 +227,12 @@
     navigate(resolved.href);
   });
 
+  /* Back / forward: the browser has already moved the history cursor and put
+     the right URL in the address bar, so the swap must NOT add a new entry —
+     it simply replaces the page in place. */
   window.addEventListener('popstate', function () {
-    navigate(location.href, { force: true });
+    if (!location.href || !/\.html?$|\/$/.test(location.pathname)) return;
+    navigate(location.href, { force: true, replace: true, history: 'replace' });
   });
 
   // expose so page modules can hop pages with a soft transition

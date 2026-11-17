@@ -26,6 +26,7 @@
   var fadeMs = 2600;
   var fadeOutMs = 700;
   var buttons = [];
+  var broken = false;
   var listeners = [];
 
   /* --------------------------------------------------------- preference */
@@ -89,10 +90,13 @@
   function onAudioError() {
     wantsPlay = false;
     starting = false;
+    broken = true;
     setPlaying(false);
+    // the button would be a dead end — make that visible instead
+    buttons.forEach(disableButton);
     if (onAudioError.warned) return;
     onAudioError.warned = true;
-    LWOW.toast('The soundtrack could not be loaded — everything else works as usual.');
+    LWOW.toast(LWOW.get('ui.musicError', 'The soundtrack could not be loaded — everything else works as usual.'));
   }
 
   /* ---------------------------------------------------------------- fades */
@@ -171,8 +175,18 @@
   }
 
   /* ------------------------------------------------------------- controls */
+  function disableButton(btn) {
+    if (!btn) return;
+    var label = get('ui.musicUnavailable', 'Soundtrack unavailable');
+    btn.disabled = true;
+    btn.setAttribute('aria-disabled', 'true');
+    btn.setAttribute('aria-label', label);
+    btn.setAttribute('title', label);
+  }
+
   function syncButton(btn) {
     if (!btn) return;
+    if (broken) { disableButton(btn); return; }
     var wrap = btn.closest('.audio-wrap') || btn.parentElement;
     btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
     var label = playing ? get('ui.musicOff', 'Turn music off') : get('ui.musicOn', 'Turn music on');
@@ -386,6 +400,7 @@
     fadeOutMs = cfg.fadeOutMs || 700;
 
     buttons = Array.prototype.slice.call(document.querySelectorAll('[data-music-toggle]'));
+    if (broken) buttons.forEach(disableButton);
     if (cfg.enabled === false) {
       buttons.forEach(function (btn) {
         var group = btn.closest('.audio-group');

@@ -364,13 +364,13 @@
 
     // ---- candles
     const n = candles;
-    const totalW = 96, startX = 250 - totalW / 2;
+    const totalW = 132, startX = 250 - totalW / 2;
     for (let i = 0; i < n; i++) {
       const x = startX + (n === 1 ? totalW / 2 : (totalW / (n - 1)) * i);
       const y = 140;
       const hue = ['#F5B8CE', '#DCCCF5', '#FFE0B2', '#BFE3D0', '#F7C9D9'][i % 5];
       s += `<g class="candle" data-candle="${i}" transform="translate(${r2(x)} ${y})">
-        <circle class="candle__hit" cx="0" cy="-24" r="30" fill="#fff" opacity="0"/>
+        <circle class="candle__hit" cx="0" cy="-44" r="17.5" fill="#fff" opacity="0"/>
         <rect x="-4.6" y="-46" width="9.2" height="48" rx="4" fill="${hue}"/>
         <path d="M-4.6 -46 c 2 6 7 6 9.2 0" fill="#fff" opacity="0.55"/>
         <rect x="-4.6" y="-14" width="9.2" height="3" fill="#FFF6FA" opacity="0.75"/>

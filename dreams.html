@@ -53,10 +53,10 @@
 
   <main class="page__main" id="main">
     <header class="dreams-head">
-      <p class="eyebrow eyebrow--centered reveal">Dreams &amp; destinations</p>
-      <h1 class="dreams-head__title halo">A Beautiful <em>Future Waits</em></h1>
+      <p class="eyebrow eyebrow--centered reveal" data-bind-text="dreams.eyebrow">Dreams &amp; destinations</p>
+      <h1 class="dreams-head__title halo" data-core-bind="dreams.heading" data-core-rich="1">A Beautiful <em>Future Waits</em></h1>
       <p class="dreams-head__body reveal">
-        Five little doors into what is coming for you. Each one is already open.
+        <span data-core-bind="dreams.body">Five little doors into what is coming for you. Each one is already open.</span>
       </p>
     </header>
 
@@ -64,7 +64,7 @@
 
     <div class="dreams-foot">
       <a class="btn btn--primary btn--lg" href="surprise.html" data-nav>
-        Discover Another Surprise
+        <span data-core-bind="dreams.cta">Discover Another Surprise</span>
         <span class="btn__arrow" aria-hidden="true" data-icon="arrowRight"></span>
       </a>
       <p class="hand" style="color:var(--ink-muted);font-size:var(--text-base)">

@@ -103,17 +103,21 @@ Open `js/config.js` and edit the strings. Nothing else needs touching.
 |------|-------|
 | **PIN** | `pin.code` — must keep `pin.length` digits (`'1119'` = the birthday) |
 | Birthday date | `birthday.display`, `birthday.monthDay`, `birthday.iso` |
-| PIN lock text | `ui.*`, page copy in `index.html` |
-| Welcome copy | `welcome.*` |
-| Cake | `celebration.cakeCandles`, `celebration.candlesOut`, … |
+| Every page heading, eyebrow, intro line and button label | `welcome.*`, `celebration.*`, `garden.*`, `letter.*`, `dreams.*`, `surprise.*`, `finale.*` |
+| Cake | `celebration.cakeCandles`, `celebration.candlesOut`, `celebration.cakeHint`, `celebration.cakeAgain` |
 | The 19 wishes | `garden.flowers[]` — `{ type, name, wish }` |
 | Flower types | `rose · tulip · lily · sunflower · sakura · daisy · lavender` |
-| The letter | `letter.salutation`, `letter.paragraphs[]`, `letter.signature` |
+| The letter | `letter.salutation`, `letter.paragraphs[]`, `letter.signature`, `letter.postscript` |
 | Dreams cards | `dreams.cards[]` |
 | Surprises | `surprise.items[]` |
-| Finale | `finale.*` |
-| Music | `audio.src`, `audio.volume`, `audio.enabled` |
-| Theme colours | `theme.*` and the CSS variables in `css/global.css` |
+| Finale paragraphs | `finale.paragraphs[]`, `finale.encore`, `finale.starWishIntro` |
+| Music | `audio.src`, `audio.volume`, `audio.enabled`, `audio.loop` |
+| Palette | `css/global.css` → `:root` (the `theme` block in the config is a reference card of the same colours) |
+
+Because the visible copy is rendered from the config at load time, the text in
+the eight HTML files is the no-JavaScript fallback as well as a readable
+starting point. Editing either place works — the config wins once the page
+runs, so change `js/config.js` for anything you want to keep.
 
 ### The PIN is a decorative gate
 
@@ -220,18 +224,31 @@ plus the whole journey served from a **nested folder** to mimic
       locked redirects to the gate, lock button ends the session
 - [x] All eight pages load with no console errors and no failed requests
 - [x] Every internal navigation, back/forward, refresh and deep link
-- [x] 19 flower wishes open, are unique, progress counter and “all found” state
-- [x] Cake candles extinguish individually, confetti, message, relight
-- [x] Envelope opens, the full letter and signature render
+- [x] All 19 flowers opened one by one: every card's wish matches the config
+      text exactly, every card renders its artwork, the counter advances, and
+      the “all found” state appears
+- [x] Cake: each of the five flames tapped individually (mouse, touch and
+      keyboard all checked), each candle goes out on its own tap, confetti
+      falls, the message appears, the replay button relights all five
+- [x] Envelope opens, the full letter, salutation, signature and postscript
+      render, and the text is replaced correctly when the config is edited
 - [x] Five dream cards and three surprises, firework after the third
 - [x] Finale wish star, replay (stays unlocked) and return to beginning
 - [x] Music: off by default, starts only on a click, survives navigation,
-      mute/unmute, sensible behaviour with the audio file missing
+      mute/unmute, `audio.enabled: false` hides the controls and downloads no
+      file, a missing file disables the button with a clear message and the
+      rest of the site keeps working
+- [x] Copy edits made only in `js/config.js` appear on the page (headings,
+      eyebrows, buttons, letter, finale paragraphs) with the italic emphasis
+      still applied
 - [x] No horizontal scroll at any tested width; no undersized tap targets
 - [x] Keyboard-only pass (Tab order, Enter/Space on every control), reduced
       motion pass, dialog focus trap + focus restoration, Escape to close
 - [x] Zero console errors, zero failed requests, zero missing local files
-      (60 asset/link references resolved) on every page
+      (43 unique HTML references plus every CSS `url()` and JS asset path
+      resolve) on every page
+- [x] No-JavaScript visit shows the noscript note and still renders each page's
+      hand-written copy
 
 ---
 
@@ -250,6 +267,13 @@ plus the whole journey served from a **nested folder** to mimic
 - `404.html` only works when the site is hosted with GitHub Pages (or another
   host that supports custom error pages); opening files from disk simply will
   not find a missing file.
+- Replacing the page copy from `js/config.js` needs JavaScript; without it the
+  hand-written copy in the HTML is what a visitor sees.
+- The soft router is an enhancement. Where it is unavailable or blocked, each
+  link is a normal page load and everything still works, including the gate.
+- Tested in Chromium only (desktop and mobile emulation). Safari, Firefox and
+  real iOS/Android hardware were not available here, so treat those as
+  expected-but-unverified.
 
 ---
 

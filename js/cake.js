@@ -122,7 +122,13 @@
           extinguish(candle);
           candle.setAttribute('aria-label', 'Candle ' + idx + ' — out');
         };
-        candle.addEventListener('click', activate);
+        candle.addEventListener('click', function (event) {
+          // Several candles share one <svg>; always extinguish the candle that
+          // was really tapped, even if a neighbouring group caught the click.
+          var owner = event.target.closest ? event.target.closest('.candle') : null;
+          extinguish(owner || candle);
+          (owner || candle).setAttribute('aria-label', 'Candle ' + idx + ' — out');
+        });
         candle.addEventListener('keydown', function (event) {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();

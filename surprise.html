@@ -52,10 +52,10 @@
 
   <main class="page__main" id="main">
     <header class="surprise-head">
-      <p class="eyebrow eyebrow--centered reveal" style="color:#ffe0b0">A little extra magic</p>
-      <h1 class="surprise-head__title">Three Little <em>Surprises</em></h1>
+      <p class="eyebrow eyebrow--centered reveal" style="color:#ffe0b0" data-bind-text="surprise.eyebrow">A little extra magic</p>
+      <h1 class="surprise-head__title"><span data-core-bind="surprise.heading" data-core-rich="1">Three Little <em>Surprises</em></span></h1>
       <p class="surprise-head__body reveal">
-        The lanterns are lit and the fireflies have come out. Something is waiting behind each glow.
+        <span data-core-bind="surprise.body">The lanterns are lit and the fireflies have come out. Something is waiting behind each glow.</span>
       </p>
     </header>
 
@@ -75,7 +75,7 @@
         Two more little lights are waiting for you.
       </p>
       <a class="btn btn--primary btn--lg" href="finale.html" data-nav>
-        One Last Little Wish
+        <span data-core-bind="surprise.cta">One Last Little Wish</span>
         <span class="btn__arrow" aria-hidden="true" data-icon="arrowRight"></span>
       </a>
     </div>

@@ -119,7 +119,9 @@
     });
 
     // A friendly nudge when someone uses a stale bookmark.
-    if (LWOW.pageId() !== 'gate' && !LWOW.isUnlocked()) {
+    // The gate and the public "quiet detour" page are never bounced.
+    var pageNow = LWOW.pageId();
+    if (pageNow !== 'gate' && pageNow !== 'notfound' && !LWOW.isUnlocked()) {
       location.replace('index.html');
     }
   };

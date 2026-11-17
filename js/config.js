@@ -39,6 +39,9 @@ window.LWOW_CONFIG = {
      3. THEME
      --------------------------------------------------------------------- */
   theme: {
+    /* These are the palette swatches the artwork and CSS were designed with.
+       They are a reference card, not a live colour switcher: the stylesheet
+       holds the real values in css/global.css (search for :root). */
     cream: '#FFF8F0',
     softPink: '#FCE4EC',
     primaryPink: '#F5B8CE',
@@ -49,7 +52,7 @@ window.LWOW_CONFIG = {
     // how many drifting petals / fireflies / stars the background layer draws.
     // Lower these if you want an even lighter page.
     particles: { petals: 18, sparkles: 22, fireflies: 14 },
-    // "auto" follows the route, or force a backdrop for every page:
+    // "auto" follows the route, or force one backdrop for every page:
     // 'sakuraGate' | 'gardenMorning' | 'festivalGlow' | 'gardenWishes' |
     // 'letterDesk' | 'dreamsSky' | 'eveningMagic' | 'nightGarden'
     backdropOverride: null
@@ -92,13 +95,14 @@ window.LWOW_CONFIG = {
     tagline: 'created to make your special day a little more magical',
     backLabel: 'Back',
     homeLabel: 'Home',
-    nextLabel: 'Next',
     lockLabel: 'Lock this world',
     lockConfirm: 'Lock the little world again? You will need the PIN to return.',
     musicOn: 'Turn music on',
     musicOff: 'Turn music off',
     soundOn: 'Turn sounds on',
-    soundOff: 'Turn sounds off'
+    soundOff: 'Turn sounds off',
+    musicUnavailable: 'Soundtrack unavailable',
+    musicError: 'The soundtrack could not be loaded — everything else works as usual.'
   },
 
   /* ---------------------------------------------------------------------
@@ -108,11 +112,7 @@ window.LWOW_CONFIG = {
     eyebrow: 'The gate is open',
     heading: 'Welcome to Your Little World',
     body: 'A tiny corner filled with flowers, smiles, and beautiful wishes, created to make your special day a little more magical.',
-    cta: 'Begin the Journey',
-    notes: [
-      { icon: 'petal', text: 'Take your time — nothing here is in a hurry.' },
-      { icon: 'music', text: 'Music is off by default. Turn it on whenever you like.' }
-    ]
+    cta: 'Begin the Journey'
   },
 
   /* ---------------------------------------------------------------------
@@ -122,7 +122,6 @@ window.LWOW_CONFIG = {
     heading: 'Happy Birthday!',
     body: 'Today is all about celebrating you and the wonderful person you continue to become.',
     cakeCandles: 5,
-    cakeIntro: 'Tap the little flames to make a wish.',
     cakeHint: 'Five little candles, one quiet wish — tap each flame.',
     candlesOut: 'The candles are out. May every wish you keep today find its way to you.',
     cakeAgain: 'Light them again',
@@ -228,7 +227,6 @@ window.LWOW_CONFIG = {
       'Keep smiling, keep dreaming, and keep shining.'
     ],
     encore: 'Happy Birthday Once Again!',
-    footer: 'Made with care, just to celebrate your special day.',
     replay: 'Experience Again',
     restart: 'Return to Beginning',
     starWishIntro: 'One last thing — hold a star and make it yours.',

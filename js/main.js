@@ -236,6 +236,48 @@
   }
   LWOW.bindConfig = bindConfig;
 
+  /* ------------------------------------------------- core copy binder
+     Keeps the eight hand-written pages in sync with js/config.js, so the
+     visible copy really is editable from that one file (the HTML stays as a
+     readable, no-JavaScript fallback). Only the copy the config owns is
+     touched: headings, eyebrows, intros, calls to action. */
+  function bindCoreCopy(root) {
+    qsa('[data-core-bind]', root).forEach(function (el) {
+      var value = get(el.getAttribute('data-core-bind'));
+      if (value == null || value === '') return;
+      var mode = el.getAttribute('data-core-rich');
+      if (mode === 'heading') {
+        // a full sentence used as a heading: emphasise the closing phrase
+        // after the comma (e.g. "19 Flowers, 19 Beautiful Wishes")
+        var safe = esc(value);
+        var cut = safe.lastIndexOf(', ');
+        el.innerHTML = cut > 0
+          ? safe.slice(0, cut + 2) + '<em>' + safe.slice(cut + 2) + '</em>'
+          : safe;
+      } else if (mode === 'lines') {
+        // two-line display headings ("Welcome to / Your Little World"):
+        // split before the last two or three words and italicise the tail
+        var full = esc(value);
+        var parts = full.split(' ');
+        var tail = parts.length >= 4 ? 3 : 2;
+        el.innerHTML = '<span>' + parts.slice(0, -tail).join(' ') + '</span> <span><em>' +
+          parts.slice(-tail).join(' ') + '</em></span>';
+      } else if (mode === '1') {
+        // headings keep their italic emphasis: the last two words become <em>
+        var text = esc(value);
+        var words = text.split(' ');
+        if (words.length > 2) {
+          el.innerHTML = words.slice(0, -2).join(' ') + ' <em>' + words.slice(-2).join(' ') + '</em>';
+        } else {
+          el.innerHTML = text;
+        }
+      } else {
+        el.textContent = value;
+      }
+    });
+  }
+  LWOW.bindCoreCopy = bindCoreCopy;
+
   /* ---------------------------------------------------------- backdrop */
   var BACKDROPS = {
     gate: 'sakura-gate',
@@ -626,6 +668,7 @@
   function boot(options) {
     var opts = options || {};
     bindConfig();
+    bindCoreCopy();
     if (LWOW.shell && LWOW.shell.init) LWOW.shell.init();
     setupBackdrop();
     setupHeader();

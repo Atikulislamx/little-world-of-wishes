@@ -53,14 +53,12 @@
 
   <main class="page__main" id="main">
     <section class="welcome-hero" aria-labelledby="welcome-title">
-      <p class="eyebrow eyebrow--centered reveal">The gate is open</p>
+      <p class="eyebrow eyebrow--centered reveal" data-bind-text="welcome.eyebrow">The gate is open</p>
 
-      <h1 class="welcome-hero__title halo" id="welcome-title">
-        <span>Welcome to</span>
-        <span><em>Your Little World</em></span>
-      </h1>
+      <h1 class="welcome-hero__title halo" id="welcome-title" data-core-bind="welcome.heading" data-core-rich="lines"><span>Welcome to</span>
+        <span><em>Your Little World</em></span></h1>
 
-      <p class="welcome-hero__body reveal">
+      <p class="welcome-hero__body reveal" data-bind-text="welcome.body">
         A tiny corner filled with flowers, smiles, and beautiful wishes,
         created to make your special day a little more magical.
       </p>
@@ -78,7 +76,7 @@
 
       <div class="welcome-cta reveal">
         <a class="btn btn--primary btn--lg btn--glow" href="celebration.html" data-nav>
-          Begin the Journey
+          <span data-core-bind="welcome.cta">Begin the Journey</span>
           <span class="btn__arrow" aria-hidden="true" data-icon="arrowRight"></span>
         </a>
         <span class="badge">

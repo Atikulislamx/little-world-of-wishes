@@ -83,7 +83,21 @@
     host.appendChild(wishStar);
   }
 
+  function paintCopy() {
+    var panel = LWOW.qs('[data-finale-panel]');
+    var paragraphs = LWOW.get('finale.paragraphs', []);
+    if (panel && paragraphs && paragraphs.length) {
+      panel.innerHTML = paragraphs.map(function (text) {
+        return '<p>' + LWOW.esc(text) + '</p>';
+      }).join('');
+    }
+    var hint = LWOW.qs('[data-wish-hint]');
+    var intro = LWOW.get('finale.starWishIntro', '');
+    if (hint && intro) hint.textContent = intro;
+  }
+
   Finale.init = function () {
+    paintCopy();
     thanksEl = LWOW.qs('[data-wish-thanks]');
     hintEl = LWOW.qs('[data-wish-hint]');
     makeStars();

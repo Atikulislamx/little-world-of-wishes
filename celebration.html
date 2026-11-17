@@ -54,8 +54,8 @@
     <div class="celebration-hero">
       <div class="celebration-card">
         <div class="celebration-hero__head">
-          <p class="eyebrow eyebrow--centered" style="color:#ffe6c4">The day itself</p>
-          <h1 class="celebration-hero__heading">Happy Birthday!</h1>
+          <p class="eyebrow eyebrow--centered" style="color:#ffe6c4" data-bind-text="celebration.eyebrow">The day itself</p>
+          <h1 class="celebration-hero__heading" data-bind-text="celebration.heading">Happy Birthday!</h1>
         </div>
         <div class="celebration-hero__copy">
           <p class="celebration-hero__date">
@@ -63,7 +63,7 @@
             <span data-date="display">November 19, 2026</span>
           </p>
           <p class="celebration-hero__body">
-            Today is all about celebrating you and the wonderful person you continue to become.
+            <span data-core-bind="celebration.body">Today is all about celebrating you and the wonderful person you continue to become.</span>
           </p>
         </div>
       </div>
@@ -76,7 +76,7 @@
       <div class="cake-stage__checklist">
         <p class="cake-hint" data-cake-hint>
           <span aria-hidden="true" data-icon="flame"></span>
-          <span>Five little candles, one quiet wish — tap each flame.</span>
+          <span><span data-core-bind="celebration.cakeHint">Five little candles, one quiet wish — tap each flame.</span></span>
         </p>
         <p class="celebration-toast" data-cake-message role="status" aria-live="polite"></p>
         <p class="candle-counter" data-candle-counter>5 candles still glowing</p>
@@ -84,11 +84,10 @@
 
       <div class="cluster cluster--center">
         <button class="btn btn--ghost" type="button" data-cake-again hidden>
-          <span aria-hidden="true" data-icon="flame"></span>
-          Light them again
+          <span data-core-bind="celebration.cakeAgain">Light them again</span>
         </button>
         <a class="btn btn--primary btn--lg" href="garden.html" data-nav>
-          Explore Your Garden
+          <span data-core-bind="celebration.cta">Explore Your Garden</span>
           <span class="btn__arrow" aria-hidden="true" data-icon="arrowRight"></span>
         </a>
       </div>
