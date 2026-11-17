@@ -1,0 +1,17 @@
+{
+  "name": "little-world-of-wishes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An eight-page interactive Japanese-anime-inspired birthday experience, built as a plain static site.",
+  "homepage": "https://atikulislamx.github.io/little-world-of-wishes/",
+  "keywords": ["birthday", "static-site", "github-pages", "vanilla-js", "anime", "sakura"],
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "serve": "npx --yes serve . -l 8080",
+    "music": "node tools/make-music.mjs"
+  },
+  "devDependencies": {
+    "@breezystack/lamejs": "^1.2.7"
+  }
+}
