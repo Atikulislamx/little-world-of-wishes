@@ -1,0 +1,1008 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Little World of Wishes — pages.css
+   One block per page, mobile-first, in journey order.
+   ========================================================================== */
+
+/* =========================================================
+   PAGE 01 · THE SECRET GATE
+   ========================================================= */
+.page--gate .page__main {
+  justify-content: center;
+  padding-bottom: clamp(1.5rem, 6vw, 3rem);
+}
+
+.gate-shell {
+  display: grid;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  align-items: center;
+  width: var(--shell);
+  margin-inline: auto;
+}
+
+.gate-intro {
+  text-align: center;
+}
+
+.gate-intro__title {
+  font-size: var(--text-3xl);
+  line-height: 1.06;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+
+.gate-intro__title em {
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.gate-intro__sub {
+  max-width: 30ch;
+  margin: var(--s-3) auto 0;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.gate-intro__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: var(--s-4);
+  padding: 0.4em 0.95em;
+  border-radius: var(--r-pill);
+  background: rgba(255, 253, 251, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.gate-intro__date svg {
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--accent-deep);
+}
+
+.gate-intro__note {
+  display: inline-block;
+  margin-top: var(--s-4);
+  padding: 0.7rem 1.05rem;
+  border-radius: var(--r-md);
+  background: rgba(255, 252, 248, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow-xs);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .gate-intro__note {
+    background: rgba(255, 252, 248, 0.5);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.gate-footnote {
+  margin-top: 0;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* =========================================================
+   PAGE 02 · A WARM WELCOME
+   ========================================================= */
+.page--welcome .page__main {
+  justify-content: center;
+}
+
+.welcome-hero {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.25rem);
+  width: var(--shell);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.welcome-hero__title {
+  font-size: clamp(2.35rem, 1.5rem + 4.6vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.016em;
+}
+
+.welcome-hero__title span {
+  display: block;
+}
+
+.welcome-hero__title em {
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.welcome-hero__body {
+  max-width: 46ch;
+  margin-inline: auto;
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: var(--leading-relaxed);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.welcome-notes {
+  display: grid;
+  gap: var(--s-3);
+  width: min(100%, 640px);
+  margin-inline: auto;
+}
+
+.welcome-note {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 0.7rem 1rem;
+  border-radius: var(--r-pill);
+  background: rgba(255, 253, 251, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-xs);
+  text-align: left;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .welcome-note {
+    background: rgba(255, 253, 251, 0.7);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.welcome-note svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--accent-deep);
+}
+
+.welcome-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.welcome-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  width: min(280px, 70%);
+  margin-inline: auto;
+  color: var(--rose-gold);
+}
+
+.welcome-flourish span:not([data-icon]) {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.7;
+}
+
+.welcome-flourish [data-icon] svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================================
+   PAGE 03 · THE CELEBRATION
+   ========================================================= */
+.page--celebration {
+  --cake-accent: #ffe6b8;
+}
+
+.celebration-hero {
+  display: grid;
+  gap: clamp(0.5rem, 1.8vw, 1rem);
+  justify-items: center;
+  width: min(720px, var(--shell));
+  margin-inline: auto;
+  text-align: center;
+}
+
+.celebration-card {
+  display: grid;
+  gap: clamp(0.6rem, 2vw, 1rem);
+  justify-items: center;
+  padding: clamp(1rem, 3vw, 1.75rem) clamp(1.15rem, 5vw, 2.75rem);
+  border-radius: var(--r-xl);
+  background: radial-gradient(120% 140% at 50% 0%, rgba(60, 36, 66, 0.56) 0%, rgba(48, 30, 56, 0.36) 62%, rgba(44, 27, 52, 0.46) 100%);
+  border: 1px solid rgba(255, 246, 236, 0.22);
+  box-shadow: 0 30px 80px -60px rgba(20, 10, 26, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+@supports (backdrop-filter: blur(16px)) {
+  .celebration-card {
+    backdrop-filter: blur(16px) saturate(1.05);
+  }
+}
+
+.cake-stage {
+  margin-top: clamp(-0.5rem, -1vw, 0rem);
+}
+
+.celebration-hero__head {
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+}
+
+.celebration-hero__copy {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+}
+
+.celebration-hero__heading {
+  font-size: clamp(2.4rem, 1.4rem + 4.6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: #fff8f2;
+  text-shadow: 0 2px 30px rgba(58, 32, 52, 0.45);
+}
+
+.celebration-hero__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.45em 1.15em;
+  border-radius: var(--r-pill);
+  background: rgba(255, 250, 243, 0.16);
+  border: 1px solid rgba(255, 246, 232, 0.42);
+  color: #fff6ec;
+  font-size: var(--text-xs);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .celebration-hero__date {
+    backdrop-filter: blur(8px);
+  }
+}
+
+.celebration-hero__date svg {
+  width: 1.1em;
+  height: 1.1em;
+  color: #ffe0b0;
+}
+
+.celebration-hero__body {
+  max-width: 40ch;
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.12rem, 1rem + 0.6vw, 1.42rem);
+  line-height: 1.6;
+  color: rgba(255, 249, 244, 0.92);
+  text-wrap: pretty;
+}
+
+.cake-stage {
+  position: relative;
+  width: min(480px, 84vw);
+  margin-top: 0;
+}
+
+.cake-stage__checklist {
+  display: grid;
+  gap: 0.3rem;
+  justify-items: center;
+  min-height: 2.9rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--r-lg);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .cake-stage__checklist {
+    background: rgba(44, 27, 52, 0.28);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.cake-stage__halo {
+  position: absolute;
+  inset: 4% -6% 12%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 240, 210, 0.34), rgba(255, 226, 200, 0.08) 60%, transparent 74%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.cake-svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 30px 40px rgba(38, 22, 40, 0.42));
+}
+
+.cake-svg .candle {
+  outline: none;
+}
+
+.cake-svg .candle:focus-visible .candle__hit {
+  opacity: 0.12;
+  fill: #fff;
+}
+
+.cake-stage.is-out .cake-svg {
+  filter: drop-shadow(0 26px 34px rgba(38, 22, 40, 0.4)) brightness(0.99);
+}
+
+.cake-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  margin-top: 0;
+  padding: 0.5rem 1rem;
+  border-radius: var(--r-pill);
+  background: rgba(255, 250, 243, 0.14);
+  border: 1px solid rgba(255, 246, 232, 0.3);
+  color: rgba(255, 249, 244, 0.92);
+  font-size: var(--text-sm);
+  text-align: center;
+  transition: opacity var(--dur-3) var(--ease-soft);
+}
+
+.cake-hint svg {
+  width: 1.2em;
+  height: 1.2em;
+  color: #ffe0b0;
+}
+
+.cake-hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.celebration-toast {
+  min-height: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: #fff3dd;
+}
+
+.candle-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 249, 244, 0.72);
+}
+
+/* =========================================================
+   PAGE 04 · A GARDEN OF WISHES
+   ========================================================= */
+.garden-head {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: center;
+  text-align: center;
+  width: var(--shell-narrow);
+  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
+}
+
+.garden-head__layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+}
+
+.garden-head__title {
+  font-size: clamp(1.9rem, 1.3rem + 3.1vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.garden-head__title em {
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.garden-head__body {
+  max-width: 44ch;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.garden-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65em;
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--r-pill);
+  background: rgba(255, 253, 251, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.garden-meter__count {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--accent-deep);
+}
+
+.garden-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  gap: clamp(0.15rem, 0.8vw, 0.55rem);
+  width: var(--shell-wide);
+  margin-inline: auto;
+  padding: clamp(0.75rem, 2.4vw, 1.6rem);
+  border-radius: var(--r-xl);
+  background: linear-gradient(180deg, rgba(255, 252, 248, 0.44) 0%, rgba(255, 250, 245, 0.26) 60%, rgba(255, 248, 240, 0.34) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 30px 70px -54px rgba(72, 52, 73, 0.45);
+}
+
+@supports (backdrop-filter: blur(14px)) {
+  .garden-grid {
+    background: rgba(255, 252, 248, 0.5);
+    backdrop-filter: blur(14px) saturate(1.06);
+  }
+}
+
+.garden-grid > * {
+  min-width: 0;
+}
+
+.garden-grid .flower-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  padding: 0.2rem 0.1rem 0.45rem;
+  min-height: 0;
+}
+
+.garden-grid .flower-card__art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1.02;
+  flex: 0 0 auto;
+}
+
+.garden-grid .flower-card__pad {
+  inset: 6% 4% 16%;
+}
+
+.garden-grid .flower-card__label {
+  max-width: 100%;
+  font-size: var(--text-xs);
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.garden-grid .flower-card:hover .flower-card__label,
+.garden-grid .flower-card:focus-visible .flower-card__label {
+  background: rgba(255, 245, 249, 0.95);
+}
+
+.garden-foot {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: center;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.garden-foot__note {
+  max-width: 46ch;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.garden-complete {
+  animation: fade-up 700ms var(--ease-out) both;
+}
+
+/* =========================================================
+   PAGE 05 · A LITTLE NOTE
+   ========================================================= */
+.letter-wrap {
+  display: grid;
+  gap: clamp(1.25rem, 4vw, 2rem);
+  justify-items: center;
+  width: var(--shell);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.letter-head {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: center;
+  max-width: 54ch;
+}
+
+.letter-head__title {
+  font-size: clamp(1.9rem, 1.3rem + 3vw, 3.2rem);
+  font-weight: 400;
+}
+
+.letter-head__title em {
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.letter-head__intro {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.letter-stage {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.letter-stage__envelope {
+  transition: opacity 620ms var(--ease-soft), transform 620ms var(--ease-out), visibility 620ms;
+}
+
+.letter-stage.is-open .letter-stage__envelope {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-24px) scale(0.92);
+}
+
+.letter-stage__sheet {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.letter-stage.is-open .letter-stage__sheet {
+  animation: none;
+}
+
+.letter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  justify-content: center;
+  align-items: center;
+}
+
+.letter-flourish {
+  width: min(240px, 60%);
+  margin-inline: auto;
+  color: var(--rose-gold);
+  opacity: 0.75;
+}
+
+.letter-butterflies {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* =========================================================
+   PAGE 06 · DREAMS & DESTINATIONS
+   ========================================================= */
+.dreams-head {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: center;
+  text-align: center;
+  width: var(--shell-narrow);
+  margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.dreams-head__title {
+  font-size: clamp(2rem, 1.35rem + 3.4vw, 3.65rem);
+  font-weight: 400;
+  line-height: 1.04;
+}
+
+.dreams-head__title em {
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.dreams-head__body {
+  max-width: 44ch;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.dream-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.75rem, 2vw, 1.15rem);
+  width: var(--shell-wide);
+  margin-inline: auto;
+  align-items: stretch;
+}
+
+.dream-card--rose {
+  --tone-light: #fde7ee;
+  --tone-deep: #c3617f;
+}
+.dream-card--sage {
+  --tone-light: #e6f0e2;
+  --tone-deep: #6f8f74;
+}
+.dream-card--gold {
+  --tone-light: #fdf0d4;
+  --tone-deep: #c08f34;
+}
+.dream-card--lavender {
+  --tone-light: #eee7fb;
+  --tone-deep: #8d76c6;
+}
+.dream-card--peach {
+  --tone-light: #fdeadd;
+  --tone-deep: #c08466;
+}
+
+.dream-card__inner {
+  display: flex;
+  gap: var(--s-4);
+  align-items: center;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.dream-card__art {
+  flex: none;
+  width: clamp(84px, 22vw, 112px);
+  height: clamp(84px, 22vw, 112px);
+}
+
+.dreams-foot {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-3);
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  text-align: center;
+}
+
+.dreams-skyline {
+  position: relative;
+  width: 100%;
+  height: clamp(70px, 12vw, 120px);
+  margin-top: clamp(1rem, 3vw, 2rem);
+  pointer-events: none;
+}
+
+.dreams-skyline svg {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   PAGE 07 · A LITTLE EXTRA MAGIC
+   ========================================================= */
+.surprise-head {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: center;
+  text-align: center;
+  width: var(--shell-narrow);
+  margin: 0 auto clamp(1.25rem, 4vw, 2rem);
+  color: #fdf3f6;
+}
+
+.surprise-head__title {
+  font-size: clamp(2rem, 1.35rem + 3.3vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.04;
+  color: #fff7f2;
+  text-shadow: 0 2px 24px rgba(30, 18, 40, 0.5);
+}
+
+.surprise-head__title em {
+  font-style: italic;
+  color: #ffe1b5;
+}
+
+.surprise-head__body {
+  max-width: 44ch;
+  font-size: var(--text-sm);
+  color: rgba(253, 243, 246, 0.82);
+}
+
+.surprise-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.75rem, 3vw, 1.5rem);
+  width: var(--shell-wide);
+  margin-inline: auto;
+}
+
+.surprise-progress {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-3);
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+
+.surprise-progress__label {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(253, 243, 246, 0.75);
+}
+
+.surprise-progress__dots {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.surprise-progress__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 246, 232, 0.6);
+  background: transparent;
+  transition: background var(--dur-3), transform var(--dur-3) var(--ease-back);
+}
+
+.surprise-progress__dot.is-found {
+  background: #ffe4ae;
+  border-color: #ffe4ae;
+  transform: scale(1.18);
+  box-shadow: 0 0 12px rgba(255, 228, 174, 0.8);
+}
+
+.surprise-foot {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: center;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.surprise-foot__note {
+  min-height: 1.7em;
+  max-width: 46ch;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: #ffe9c8;
+}
+
+/* =========================================================
+   PAGE 08 · A BEAUTIFUL TOMORROW
+   ========================================================= */
+.finale-wrap {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  width: var(--shell);
+  margin-inline: auto;
+  text-align: center;
+  color: #fdf4f7;
+}
+
+.finale-head {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: center;
+}
+
+.finale-head__title {
+  font-size: clamp(2.15rem, 1.35rem + 4vw, 4.35rem);
+  font-weight: 400;
+  line-height: 1.04;
+  color: #fffaf6;
+  text-shadow: 0 2px 34px rgba(28, 16, 40, 0.55);
+}
+
+.finale-head__title em {
+  font-style: italic;
+  color: #ffdfc0;
+}
+
+.finale-panel {
+  width: min(720px, 100%);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 2.75rem);
+  border-radius: var(--r-xl);
+  background: rgba(38, 25, 48, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 80px -46px rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+@supports (backdrop-filter: blur(18px)) {
+  .finale-panel {
+    background: rgba(38, 25, 48, 0.34);
+    backdrop-filter: blur(18px) saturate(1.05);
+  }
+}
+
+.finale-panel p {
+  font-family: var(--font-display);
+  font-size: clamp(1.08rem, 1rem + 0.6vw, 1.33rem);
+  line-height: 1.8;
+  color: rgba(255, 248, 245, 0.94);
+}
+
+.finale-panel p + p {
+  margin-top: clamp(0.9rem, 2.6vw, 1.35rem);
+}
+
+.finale-encore {
+  position: relative;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
+  line-height: 1.2;
+  color: #ffe8c6;
+  text-wrap: balance;
+}
+
+.finale-encore::before,
+.finale-encore::after {
+  content: "❀";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.5em;
+  color: rgba(255, 232, 198, 0.55);
+  font-style: normal;
+}
+
+.finale-encore::before {
+  left: -0.2em;
+}
+
+.finale-encore::after {
+  right: -0.2em;
+}
+
+.finale-wish {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: center;
+}
+
+.finale-wish__hint {
+  font-size: var(--text-sm);
+  color: rgba(255, 248, 245, 0.78);
+}
+
+.finale-wish__thanks {
+  min-height: 1.6em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: #ffe8c6;
+  opacity: 0;
+  transition: opacity var(--dur-4) var(--ease-soft);
+}
+
+.finale-wish__thanks.is-visible {
+  opacity: 1;
+}
+
+.finale-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  justify-content: center;
+}
+
+.finale-foot {
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  color: rgba(255, 248, 245, 0.6);
+}
+
+.finale-stars {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 404 */
+.notfound {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: center;
+  width: var(--shell-narrow);
+  margin: auto;
+  padding-block: var(--s-8);
+  text-align: center;
+}
+
+
+/* --------------------------------------------------------- phone polish */
+@media (max-width: 767px) {
+  .gate-intro__title {
+    font-size: clamp(1.9rem, 8.4vw, 2.5rem);
+  }
+
+  .gate-intro__note {
+    display: none;
+  }
+
+  .gate__card {
+    padding-top: clamp(1.2rem, 5vw, 1.6rem);
+  }
+
+  .celebration-hero {
+    gap: 0.4rem;
+  }
+
+  .finale-panel {
+    padding: clamp(1.15rem, 5vw, 1.6rem) clamp(1rem, 5vw, 1.5rem);
+  }
+
+  .finale-wrap {
+    gap: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .finale-actions {
+    width: 100%;
+  }
+
+  .finale-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .letter-sheet {
+    padding: clamp(1.5rem, 6vw, 2rem) clamp(1.15rem, 5vw, 1.6rem);
+  }
+
+  .dream-card__inner {
+    align-items: flex-start;
+    gap: var(--s-3);
+  }
+
+  .dream-card__art {
+    width: clamp(66px, 17vw, 82px);
+    height: clamp(66px, 17vw, 82px);
+  }
+
+  .surprise-foot__note {
+    font-size: var(--text-base);
+  }
+}
+
+/* the wax seal sits on top of the folded flap */
+.envelope .envelope__seal {
+  z-index: 6;
+  background: radial-gradient(circle at 38% 32%, #f8cad8, #e29ab2 62%, #cf7b96);
+  box-shadow: 0 8px 18px -10px rgba(143, 85, 112, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.45) inset;
+  visibility: visible;
+  opacity: 1;
+}

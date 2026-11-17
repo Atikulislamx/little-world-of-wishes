@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Little World of Wishes — effects.css
+   Canvas atmosphere layer + first-visit "unlock the music?" prompt.
+   ========================================================================== */
+
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1600ms var(--ease-soft);
+  contain: strict;
+}
+
+.ambient-canvas.is-live {
+  opacity: 1;
+}
+
+/* ------------------------------------------------- music invitation */
+.music-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
+  z-index: 75;
+  transform: translate(-50%, 140%);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: max-content;
+  max-width: min(460px, calc(100vw - 1.75rem));
+  padding: 0.55rem 0.6rem 0.55rem 1rem;
+  border-radius: var(--r-pill);
+  background: rgba(255, 251, 247, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 520ms var(--ease-back), opacity 360ms var(--ease-soft), visibility 520ms;
+}
+
+@supports (backdrop-filter: blur(14px)) {
+  .music-prompt {
+    background: rgba(255, 251, 247, 0.86);
+    backdrop-filter: blur(14px) saturate(1.1);
+  }
+}
+
+.music-prompt.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.music-prompt__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 50%;
+  background: rgba(245, 184, 206, 0.35);
+  color: var(--accent-deep);
+}
+
+.music-prompt__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.music-prompt__text {
+  min-width: 0;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+.music-prompt__text strong {
+  display: block;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.music-prompt__text span {
+  font-size: var(--text-2xs);
+  color: var(--ink-muted);
+}
+
+.music-prompt__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: none;
+}
+
+.music-prompt__btn {
+  min-height: 40px;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background var(--dur-2) var(--ease-soft), color var(--dur-2), transform var(--dur-2) var(--ease-back);
+}
+
+.music-prompt__btn--primary {
+  background: linear-gradient(135deg, #fbe3ea, var(--pink));
+  color: var(--plum);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.music-prompt__btn--primary:hover {
+  transform: translateY(-1px);
+}
+
+.music-prompt__btn--quiet {
+  background: transparent;
+  color: var(--ink-muted);
+  border-color: transparent;
+}
+
+.music-prompt__btn--quiet:hover {
+  color: var(--ink);
+  background: rgba(72, 52, 73, 0.06);
+}
+
+.music-prompt__close {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-muted);
+}
+
+.music-prompt__close:hover {
+  background: rgba(72, 52, 73, 0.07);
+  color: var(--ink);
+}
+
+.page--on-dark .music-prompt {
+  background: rgba(44, 30, 52, 0.88);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 248, 245, 0.86);
+}
+
+.page--on-dark .music-prompt__text strong {
+  color: #fff7f2;
+}
+
+.page--on-dark .music-prompt__text span {
+  color: rgba(255, 248, 245, 0.66);
+}
+
+.page--on-dark .music-prompt__icon {
+  background: rgba(255, 232, 198, 0.18);
+  color: #ffe8c6;
+}
+
+.page--on-dark .music-prompt__btn--quiet {
+  color: rgba(255, 248, 245, 0.72);
+}
+
+.page--on-dark .music-prompt__close {
+  color: rgba(255, 248, 245, 0.7);
+}
+
+@media (max-width: 430px) {
+  .music-prompt {
+    gap: 0.55rem;
+    padding-left: 0.7rem;
+    font-size: var(--text-xs);
+  }
+
+  .music-prompt__icon {
+    display: none;
+  }
+
+  .music-prompt__btn {
+    padding-inline: 0.7rem;
+  }
+}
+
+
+/* the shared music element lives in a zero-size keeper so soft page swaps
+   never reload or restart it */
+#lwow-audio-keeper {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+body > audio[data-lwow-music] {
+  display: none;
+}
